@@ -9,6 +9,7 @@ import bill as pagar_y_agregar_servicio
 import login as login_con_registro_y_captcha
 import chances as juego_de_azar
 import credit as tarjeta_de_credito
+import bank as administrador_de_finanzas
 
 # --------------- Limpiar consola ---------------
 
@@ -21,7 +22,7 @@ limpiar_consola()
 
 def finalizar_programa():
     
-    print("\n" + "Gracias por jugar.")
+    print("\n \n" + "Gracias por jugar.")
     print("\n" + "Presiona (Ctrl) para mostrar el menú o (Shift) para salir del programa. \n")
     
     while True:
@@ -46,13 +47,14 @@ def mostrar_menu():
     print("|  2. Login con registro y captcha     |")
     print("|  3. Juego de azar                    |")
     print("|  4. Tarjeta de credito               |")
-    print("|  5. Salir                            |")
+    print("|  5. Administrador de finanzas        |")
+    print("|  6. Salir                            |")
     print("|                                      |")
     print(" ---------------- ---- ---------------- \n")
     
 opcion = "0"
 
-while opcion != "5":
+while opcion != "6":
 
     mostrar_menu()
     
@@ -71,7 +73,7 @@ while opcion != "5":
         pagar_y_agregar_servicio.bill()
         finalizar_programa()
             
-        # ---------------- Fin opcion 1. ---------------- 
+        # ---------------- Fin opción 1. ---------------- 
         
     elif opcion == "2":
         
@@ -86,7 +88,7 @@ while opcion != "5":
         login_con_registro_y_captcha.login() 
         finalizar_programa()
 
-        # ---------------- Fin opcion 2. ----------------   
+        # ---------------- Fin opción 2. ----------------   
         
     elif opcion == "3":
         
@@ -101,7 +103,7 @@ while opcion != "5":
         juego_de_azar.chances()   
         finalizar_programa()
             
-        # ---------------- Fin opcion 3. ----------------   
+        # ---------------- Fin opción 3. ----------------   
         
     elif opcion == "4":
     
@@ -116,16 +118,31 @@ while opcion != "5":
         tarjeta_de_credito.credit()
         finalizar_programa()
             
-        # ---------------- Fin opcion 4. ----------------   
-    
+        # ---------------- Fin opción 4. ----------------   
+        
     elif opcion == "5":
+    
+        limpiar_consola()
+        
+        print("Has seleccionado la Opción 5. (Administrador de finanzas) \n")
+        print("Preciona enter para ejecutar...")
+        input()
+        
+        # ------------ Administrador de finanzas ---------------
+        
+        administrador_de_finanzas.bank()
+        finalizar_programa()
+            
+        # ---------------- Fin opción 5. ----------------   
+    
+    elif opcion == "6":
         
         limpiar_consola()
         
         print("\n" + "Saliendo del programa... \n \n")
         sys.exit()
     
-        # ---------------- Fin opcion 5. ----------------  
+        # ---------------- Fin opción 6. ----------------  
 
     else:
         
