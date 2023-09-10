@@ -1,37 +1,60 @@
 
 def credit():
-
-    print("\n - Tarjeta de crédito" + "\n")
-
-    cupo_total = 200 # <--- MAXIMO DE CUPO EN NUESTRA TARJETA DE CRÉDITO
     
-    print(f"Cupo disponible = {cupo_total} dolares")
-
-    nombre = input("\n Ingrese su nombre: ")
-    compra = int(input(" Ingrese el valor de la compra: "))
-    cuotas = int(input(" Ingrese número de cuotas: "))
-
-    if compra <= cupo_total:
-
+    print("\n" + " - Tarjeta de crédito \n")
+    
+    cupo_total = 200 # <--- Cupo de la tarjeta de crédito
+    cupo_restante = cupo_total
+    
+    print(f"Cupo disponible = {cupo_restante} dólares")
+    
+    nombre = input("\n" + "Ingrese su nombre: ")
+    
+    while cupo_restante > 0:
+        
+        compra = int(input("\n" + "Ingrese el valor de la compra: "))
+        
+        if compra > cupo_restante:
+            
+            print("\n" + "No tienes suficiente cupo en la tarjeta. Introduce otro valor de compra.")
+            continue
+        
+        cuotas = int(input("Ingrese número de cuotas: "))
+        
         deuda = compra
         separacion = compra / cuotas
-
-        print(f"\n Detalle de pagos de {nombre} \n")
+        
+        print("\n" + f"Detalle de pagos de {nombre} \n")
+        
         i = 1
-
+        
         while deuda > 1 and i <= cuotas:
+            
             total = cuotas * compra
+            
             if total == cuotas:
                 cuota_actual = deuda
             else:
                 cuota_actual = separacion
                 deuda -= cuota_actual
-
-            print(f" Cuota {i}: ${cuota_actual:.2f} - Deuda restante: ${deuda:.2f}")
+                
+            cupo_restante -= cuota_actual
+            
+            print(f"Cuota {i}: ${cuota_actual:.2f} - Deuda restante: ${deuda:.2f} - Cupo restante: ${int(cupo_restante)}")
+            
             i += 1 
-
-        print("\n")
-
-    else:
-        print("\n No se puede hacer la compra \n")
+            
+        respuesta = input("\n" + "¿Desea comprar otro producto? (s/n): ")  
         
+        while respuesta != "s" and respuesta != "n":
+            
+            respuesta = input("\n" + "Ingrese una opción válida. ¿Desea comprar otro producto? (s/n): ")  
+             
+        if respuesta == "n":
+            
+            print("\n" + "Gracias por comprar, vuelve pronto! \n")
+            break
+        
+        else:
+            print("\n" + f"Cupo disponible actual = {int(cupo_restante)} dólares")
+
