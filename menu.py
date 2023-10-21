@@ -10,6 +10,7 @@ import login as login_con_registro_y_captcha
 import chances as juego_de_azar
 import credit as tarjeta_de_credito
 import bank as administrador_de_finanzas
+import salary as calcular_salarios_de_empresa
 
 # --------------- Limpiar consola ---------------
 
@@ -48,7 +49,8 @@ def mostrar_menu():
     print("|  3. Juego de azar                    |")
     print("|  4. Tarjeta de credito               |")
     print("|  5. Administrador de finanzas        |")
-    print("|  6. Salir                            |")
+    print("|  6. Calcular salarios de empresa     |")
+    print("|  7. Salir                            |")
     print("|                                      |")
     print(" ---------------- ---- ---------------- \n")
     
@@ -134,15 +136,30 @@ while opcion != "6":
         finalizar_programa()
             
         # ---------------- Fin opción 5. ----------------   
-    
+        
     elif opcion == "6":
+    
+        limpiar_consola()
+        
+        print("Has seleccionado la Opción 6. (Calcular salarios de empresa) \n")
+        print("Preciona enter para ejecutar...")
+        input()
+        
+        # ------------ Administrador de finanzas ---------------
+        
+        calcular_salarios_de_empresa.salary()
+        finalizar_programa()
+            
+        # ---------------- Fin opción 6. ----------------           
+    
+    elif opcion == "7":
         
         limpiar_consola()
         
         print("\n" + "Saliendo del programa... \n \n")
         sys.exit()
     
-        # ---------------- Fin opción 6. ----------------  
+        # ---------------- Fin opción 7. ----------------  
 
     else:
         
